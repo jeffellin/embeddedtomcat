@@ -3,7 +3,7 @@
           xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
     <id>bin</id>
     <formats>
-        <format>jar</format>
+        <format>dir</format>
     </formats>
     <includeBaseDirectory>false</includeBaseDirectory>
     <dependencySets>
@@ -15,12 +15,21 @@
                 <include>${project.groupId}:${project.artifactId}:*:${project.version}</include>
             </includes>
         </dependencySet>
+        <!--Need to add jars with TLDs to WEB-INF - Might be a way to do this by adding additional resources during
+            tomcat bootstrap-->
+        <dependencySet>
+            <outputDirectory>/WEB-INF/lib</outputDirectory>
+            <unpack>false</unpack>
+            <includes>
+                <include>org.apache.tiles:tiles-jsp</include>
+            </includes>
+        </dependencySet>
     </dependencySets>
 
     <fileSets>
     <fileSet>
         <directory>${project.basedir}/src/main/webapp</directory>
-        <outputDirectory>/webapp</outputDirectory>
+        <outputDirectory>/</outputDirectory>
     </fileSet>
     </fileSets>
 
