@@ -3,13 +3,15 @@
           xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
     <id>bin</id>
     <formats>
-        <format>jar</format>
+        <format>dir</format>
     </formats>
     <includeBaseDirectory>false</includeBaseDirectory>
     <dependencySets>
         <dependencySet>
             <outputDirectory>/</outputDirectory>
             <unpack>true</unpack>
+            <useTransitiveDependencies>true</useTransitiveDependencies>
+            <useTransitiveFiltering>true</useTransitiveFiltering>
             <scope>runtime</scope>
             <includes>
                 <include>${project.groupId}:${project.artifactId}:*:${project.version}</include>
@@ -29,6 +31,7 @@
                 <exclude>${project.groupId}:${project.artifactId}:*:${project.version}</exclude>
                 <exclude>org.apache.tomcat.embed:*</exclude>
                 <exclude>org.apache.tomcat:*</exclude>
+                <exclude>org.apache.struts:struts2-core</exclude>
             </excludes>
         </dependencySet>
     </dependencySets>
