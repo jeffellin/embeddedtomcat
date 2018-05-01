@@ -146,7 +146,7 @@
                         <appendAssemblyId>false</appendAssemblyId>
                         <outputDirectory>${project.build.directory}/archive</outputDirectory>
                         <descriptors>
-                            <descriptor>assembly.xml</descriptor>
+                            <descriptor>assembly-bin.xml</descriptor>
                         </descriptors>
                         <archive>
                             <manifest>
