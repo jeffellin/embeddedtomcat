@@ -1,0 +1,9 @@
+---
+applications:
+- name: basicwar
+  memory: 1G
+  instances: 1
+  path: target/basic-struts.war
+  env:
+    JBP_CONFIG_TOMCAT: '{tomcat: { context_path: /iapp/ret }}'
+    JAVA_OPTS: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005
